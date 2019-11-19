@@ -1,0 +1,20 @@
+[Component]
+Name=net.vyatta.eng.vci.ephemeral.test
+
+[Model net.vyatta.eng.vci.ephemeral.test.v1]
+Config/Check=/lib/vci-test-ephemeral/vci-test --action=validate
+Config/Set=/lib/vci-test-ephemeral/vci-test --action=commit
+Config/Get=/lib/vci-test-ephemeral/vci-test --action=get-config
+State/Get=/lib/vci-test-ephemeral/vci-test --action=get-state
+RPC/test/rpc1=/lib/vci-test-ephemeral/vci-test --action=rpc1
+RPC/test/rpc2=/lib/vci-test-ephemeral/vci-test --action=rpc2
+RPC/test/rpc3=/lib/vci-test-ephemeral/vci-test --action=rpc3
+
+[Model net.vyatta.eng.vci.ephemeral.test.v2]
+Config/Check=/lib/vci-test-ephemeral/vci-test --action=validate
+Config/Set=/lib/vci-test-ephemeral/vci-test --action=commit
+Config/Get=/lib/vci-test-ephemeral/vci-test --action=get-config
+State/Get=/lib/vci-test-ephemeral/vci-test --action=get-state
+RPC/test/rpc1=/lib/vci-test-ephemeral/vci-test --action=rpc1
+RPC/test/rpc2=/lib/vci-test-ephemeral/vci-test --action=rpc2
+RPC/test/rpc3=/lib/vci-test-ephemeral/vci-test --action=rpc3

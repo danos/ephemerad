@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo Component: $VCI_COMPONENT_NAME
+echo Model:     $VCI_MODEL_NAME
+echo Message:   $EPHEMERA_MESSAGE
+cat

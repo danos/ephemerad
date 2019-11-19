@@ -1,0 +1,3 @@
+usr/bin/ephemerad lib/vci/ephemera/bin
+usr/bin/activate lib/vci/ephemera/bin
+usr/bin/deactivate lib/vci/ephemera/bin

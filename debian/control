@@ -1,0 +1,30 @@
+Source: vci-ephemeral
+Section: contrib/net
+Priority: extra
+Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
+Build-Depends: debhelper (>= 9),
+ dh-golang,
+ dh-vci,
+ golang-any,
+ golang-github-danos-encoding-rfc7951-dev,
+ golang-github-danos-vci-dev,
+ golang-github-fsnotify-fsnotify-dev,
+ golang-jsouthworth-dyn-dev,
+ golang-jsouthworth-etm-dev,
+ golang-jsouthworth-immutable-dev,
+Standards-Version: 3.9.8
+
+Package: ephemerad
+Architecture: any
+Depends:  ${shlibs:Depends}
+Description: Ephemeral VCI component manager
+ A daemon that allows VCI components to be implemented by a set of scripts
+
+Package: ephemerad-v1-yang
+Architecture: all
+Depends: ephemerad (>= ${binary:Version}), ${yang:Depends}
+Section: admin
+Priority: optional
+Description: Ephemeral component manager YANG definition
+ The YANG definition for a ephemeral component manager.
+

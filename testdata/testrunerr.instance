@@ -1,0 +1,11 @@
+[Component]
+Name=net.vyatta.eng.vci.ephemeral.testrunerr
+
+[Model net.vyatta.eng.vci.ephemeral.testrunerr.v1]
+Config/Check=/bin/sh testdata/testrunerr
+Config/Set=/bin/sh testdata/testrunerr
+Config/Get=/bin/sh testdata/testrunerr
+State/Get=/bin/sh testdata/testrunerr
+RPC/test/rpc1=/bin/sh testdata/testrunerr
+RPC/test/rpc2=/bin/sh testdata/testrunerr
+RPC/test/rpc3=/bin/sh testdata/testrunerr

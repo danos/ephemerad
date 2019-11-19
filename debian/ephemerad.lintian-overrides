@@ -1,0 +1,2 @@
+ephemerad: statically-linked-binary lib/vci/ephemera/bin/activate
+ephemerad: hardening-no-relro

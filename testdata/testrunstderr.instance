@@ -1,0 +1,13 @@
+[Component]
+Name=net.vyatta.eng.vci.ephemeral.testrunstderr
+Start=/bin/sh testdata/testrunstderr
+Stop=/bin/sh testdata/testrunstderr
+
+[Model net.vyatta.eng.vci.ephemeral.testrunstderr.v1]
+Config/Check=/bin/sh testdata/testrunstderr
+Config/Set=/bin/sh testdata/testrunstderr
+Config/Get=/bin/sh testdata/testrunstderr
+State/Get=/bin/sh testdata/testrunstderr
+RPC/test/rpc1=/bin/sh testdata/testrunstderr
+RPC/test/rpc2=/bin/sh testdata/testrunstderr
+RPC/test/rpc3=/bin/sh testdata/testrunstderr

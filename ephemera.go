@@ -1,4 +1,4 @@
-// Copyright (c) 2019, AT&T Intellectual Property. All rights reseved.
+// Copyright (c) 2019-2020, AT&T Intellectual Property. All rights reseved.
 //
 // SPDX-License-Identifier: GPL-2.0-only
 package ephemera
@@ -98,7 +98,7 @@ func (c *config) Get() encodedString {
 	buf, err := cmd.Output()
 	if err != nil {
 		merr := unpackError(stdErr)
-		elog.Println("Error for", cmd.Env, merr)
+		elog.Printf("Error for %s: %s / %s\n", cmd.Env, merr, err)
 		return []byte{}
 	}
 	return buf
@@ -123,7 +123,7 @@ func (c *config) Set(in encodedString) error {
 	}
 	if err != nil {
 		merr := unpackError(stdErr)
-		elog.Println("Error for", cmd.Env, merr)
+		elog.Printf("Error for %s: %s / %s\n", cmd.Env, merr, err)
 		return merr
 	}
 	return nil
@@ -148,7 +148,7 @@ func (c *config) Check(in encodedString) error {
 	}
 	if err != nil {
 		merr := unpackError(stdErr)
-		elog.Println("Error for", cmd.Env, merr)
+		elog.Printf("Error for %s: %s / %s\n", cmd.Env, merr, err)
 		return merr
 	}
 	return nil
@@ -193,7 +193,7 @@ func (c *state) Get() encodedString {
 	buf, err := cmd.Output()
 	if err != nil {
 		merr := unpackError(stdErr)
-		elog.Println("Error for", cmd.Env, merr)
+		elog.Printf("Error for %s: %s / %s\n", cmd.Env, merr, err)
 		return []byte{}
 	}
 	return buf
@@ -255,7 +255,7 @@ func (r *rpc) genRpc(module, name, rpc string) interface{} {
 		out, err := cmd.Output()
 		if err != nil {
 			merr := unpackError(stdErr)
-			elog.Println("Error for", cmd.Env, merr)
+			elog.Printf("Error for %s: %s / %s\n", cmd.Env, merr, err)
 			return []byte{}, merr
 		}
 		return out, nil
@@ -407,7 +407,7 @@ func (c *Component) Start() error {
 	}
 
 	merr := unpackError(stdErr)
-	elog.Println("Error for", cmd.Env, merr)
+	elog.Printf("Error for %s: %s / %s\n", cmd.Env, merr, err)
 	return merr
 }
 
@@ -431,7 +431,7 @@ func (c *Component) Stop() error {
 	}
 
 	merr := unpackError(stdErr)
-	elog.Println("Error for", cmd.Env, merr)
+	elog.Printf("Error for %s: %s / %s\n", cmd.Env, merr, err)
 	return merr
 }
 

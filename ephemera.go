@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020, AT&T Intellectual Property. All rights reseved.
+// Copyright (c) 2019-2021, AT&T Intellectual Property. All rights reseved.
 //
 // SPDX-License-Identifier: GPL-2.0-only
 package ephemera
@@ -241,7 +241,7 @@ func rpcNew(compName, modelName string, section *ini.Section) *rpc {
 }
 
 func (r *rpc) genRpc(module, name, rpc string) interface{} {
-	return func(in encodedString) (encodedString, error) {
+	return func(meta, in encodedString) (encodedString, error) {
 		stdIn := bytes.NewBuffer([]byte(in))
 		stdErr := bytes.NewBuffer(nil)
 
@@ -251,6 +251,7 @@ func (r *rpc) genRpc(module, name, rpc string) interface{} {
 		cmd.Stderr = stdErr
 		cmd.Env = genEnvironment(r.compName, r.modelName,
 			strings.Join([]string{"RPC", module, name}, "/"))
+		cmd.Env = append(cmd.Env, "VCI_RPC_METADATA="+string(meta))
 
 		out, err := cmd.Output()
 		if err != nil {

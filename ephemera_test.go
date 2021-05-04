@@ -1,4 +1,4 @@
-// Copyright (c) 2019, AT&T Intellectual Property. All rights reseved.
+// Copyright (c) 2019-2021, AT&T Intellectual Property. All rights reseved.
 //
 // SPDX-License-Identifier: GPL-2.0-only
 package ephemera
@@ -185,13 +185,13 @@ func TestRunRPC(t *testing.T) {
 		t.Fatal("no rpc")
 	}
 
-	rpc := rpcs["test"]["rpc1"].(func(in encodedString) (encodedString, error))
+	rpc := rpcs["test"]["rpc1"].(func(meta, in encodedString) (encodedString, error))
 	expected := `Component: net.vyatta.eng.vci.ephemeral.testrun
 Model: net.vyatta.eng.vci.ephemeral.testrun.v1
 Message: RPC/test/rpc1
 `
 
-	out, err := rpc(encodedString(""))
+	out, err := rpc(encodedString("{}"), encodedString(""))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -329,9 +329,9 @@ func TestRunErrorRPC(t *testing.T) {
 		t.Fatal("no rpc")
 	}
 
-	rpc := rpcs["test"]["rpc1"].(func(in encodedString) (encodedString, error))
+	rpc := rpcs["test"]["rpc1"].(func(meta, in encodedString) (encodedString, error))
 
-	_, err = rpc(encodedString(""))
+	_, err = rpc(encodedString("{}"), encodedString(""))
 	if err == nil {
 		t.Fatal("didn't get expected error")
 	}
@@ -441,9 +441,9 @@ func TestRunStdErrorRPC(t *testing.T) {
 		t.Fatal("no rpc")
 	}
 
-	rpc := rpcs["test"]["rpc1"].(func(in encodedString) (encodedString, error))
+	rpc := rpcs["test"]["rpc1"].(func(meta, in encodedString) (encodedString, error))
 
-	_, err = rpc(encodedString(""))
+	_, err = rpc(encodedString("{}"), encodedString(""))
 	if err == nil {
 		t.Fatal("didn't get expected error")
 	}

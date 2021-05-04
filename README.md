@@ -60,6 +60,7 @@ Scripts are called using the UNIX environment and standard interfaces for intera
 | stderr          | Error output from the action, may be rfc7951 encoded YANG messages or strings. |
 | VCI_COMPONENT_NAME | Name of the component. |
 | VCI_MODEL_NAME  | Name of the model. |
+| VCI_RPC_METADATA | The json encoded metadata associated with an RPC call. |
 | EPHEMERA_MESSAGE| The statement from the instance file that is being invoked. 'Config/Get', 'RPC/module/name', etc. |
 | exit code       | Determins whether the script had an error (0 success; non-0 failure) |
 
